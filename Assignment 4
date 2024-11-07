@@ -2,6 +2,11 @@
 here's everything i have so far im trying to work out the rest of the functions
 
 //constructor 
+#include "LoanData.h"
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
 LoanData::LoanData(double p, double n, double i)
 {
     i = i/ 100.0;
