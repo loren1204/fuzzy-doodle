@@ -1,0 +1,43 @@
+
+here's everything i have so far im trying to work out the rest of the functions
+
+//constructor 
+LoanData::LoanData(double p, double n, double i)
+{
+    i = i/ 100.0;
+
+    i = i / 12.0;
+
+    n = n * 12; 
+
+
+    A = p * (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);
+
+    Bal = p;
+
+}
+
+
+//loandata.h 
+
+#ifndef LOANDATA_H
+#define LOANDATA_H
+
+class LoanData
+{
+private:
+    double Bal;
+    double n;
+    double i;
+    double A;
+
+public:
+    LoanData (double p, double n, double i);
+    void    MakePayment(double a); 
+    void    PrintAmortizationSchedule(); 
+    void    PrintPayoffTimeReport();
+
+    
+};
+
+#endif 
