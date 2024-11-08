@@ -38,7 +38,7 @@ public: //declaring public variables
 //MakePayment member function
     void MakePayment(double pay) 
     {
-        Bal = (i + 1) * Bal - pay;  
+        Bal = (i + 1) * Bal - pay;  //given formula
     }
 
     void printAmortizationSchedule()  //header
