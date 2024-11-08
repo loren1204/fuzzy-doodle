@@ -52,6 +52,7 @@ void LoanData::printAmortizationSchedule()  //header
     int month = 1;
 
     // Print header
+    // using setw function to improve table readability 
     std::cout << std::left
               << std::setw(15) << "Month"
               << std::setw(15) << "Beginning Balance"
