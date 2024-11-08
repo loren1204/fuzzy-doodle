@@ -87,8 +87,8 @@ public: //declaring public variables
 
     void printPayOffTimeReport(double p, double i)  //parameters:p representing loan amount and i the monthly interest rate
     {
-        double A;
-        for (int n = 6; n < 360; n++) 
+        double A; //mon thly payment variable 
+        for (int n = 6; n < 360; n++) //given formula
         {
             A = p * (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);
             std::cout << "Months: " << n << " - Monthly Payment: " << A << "\n";
