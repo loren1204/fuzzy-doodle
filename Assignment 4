@@ -1,6 +1,5 @@
 
-here's everything i have so far im trying to work out the rest of the functions
-
+here's everything i have so far adding detailed comments now 
 //constructor 
 #include "LoanData.h"
 #include <iostream>
@@ -102,3 +101,23 @@ public:
 };
 
 #endif 
+//PRINTPAYOFFTIMEREPORT
+void LoanData::printPayOffTimeReport(double p, double i)
+{
+    double A;  // Monthly payment
+   
+
+   
+    std::cout << std::setw(10) << "Months" 
+              << std::setw(15) << "Monthly Payment" 
+
+    
+    for (int n = 6; n <= 360; n++)
+    {
+       
+        A = p * (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);
+
+        
+        std::cout << std::setw(10) << n << std::setw(15) << std::fixed << std::setprecision(2) << A << "\n";
+    }
+}
