@@ -14,20 +14,20 @@
 
 
 
-#include <iostream>
-#include <cmath>
-#include <iomanip>
+#include <iostream> // use std::cout and std::cin
+#include <cmath>   //  needed to use the pow function in the monthly payment loan formula
+#include <iomanip> // needed to use setw(n) 
 
 class LoanData
  {
-private:
+private: //declaring private variables
     double Bal;
     double n;
     double i;
     double A;
 
-public:
-    LoanData(double p, double n, double i)
+public: //declaring public variables 
+    LoanData(double p, double n, double i) // formula for monthly payment loan 
      {
         i = i / 100.0;      
         i = i / 12.0;       
@@ -35,14 +35,15 @@ public:
         A = p * (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);  
         Bal = p;            
     }
-
+//MakePayment member function
     void MakePayment(double pay) 
     {
         Bal = (i + 1) * Bal - pay;  
     }
 
-    void printAmortizationSchedule()
+    void printAmortizationSchedule()  //header
      {
+      //Declaring fields 
         double beginningBalance = Bal;
         double payment;
         double interestPaid;
@@ -50,6 +51,8 @@ public:
         double endingBalance;
         int month = 1;
 
+      // Print header
+    // using setw function to improve table readability 
         std::cout << std::left
                   << std::setw(10) << "Month"
                   << std::setw(20) << "Beginning Balance"
@@ -58,7 +61,7 @@ public:
                   << std::setw(15) << "Principal Paid"
                   << std::setw(20) << "Ending Balance" << "\n";
 
-        while (beginningBalance > 0)
+        while (beginningBalance > 0) // Given algorithm 
          {
             interestPaid = i * beginningBalance;
             if ((i + 1) * beginningBalance > A)
@@ -93,7 +96,7 @@ public:
     }
 };
 
-int main() 
+int main() //main function is executed 
 {
     double p = 10000;   // Loan amount
     double n = 30;      //years
