@@ -1,0 +1,11 @@
+int main() {
+    double p = 10000;   // Loan amount
+    double n = 30;      // Number of years to pay off
+    double i = 6;       // Interest rate
+
+    LoanData loan(p, n, i);
+    loan.printAmortizationSchedule();  // Print amortization schedule
+    loan.printPayOffTimeReport(p, i); // Print payoff time report
+
+    return 0;
+}
