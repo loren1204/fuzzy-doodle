@@ -7,6 +7,57 @@ here's everything i have so far im trying to work out the rest of the functions
 #include <cmath>
 #include <iomanip>
 
+//printAmortizationSchedule
+void LoanData::printAmortizationSchedule()
+{
+    double beginningBalance = Bal;  
+    double payment;
+    double interestPaid;
+    double principalPaid;
+    double endingBalance;
+    int month = 1;
+
+    // Print header
+    std::cout << std::left
+              << std::setw(10) << "Month"
+              << std::setw(20) << "Beginning Balance"
+              << std::setw(10) << "Payment"
+              << std::setw(15) << "Interest Paid"
+              << std::setw(15) << "Principal Paid"
+              << std::setw(20) << "Ending Balance" << "\n";
+
+    while (beginningBalance > 0)
+    {
+        
+        if ((i + 1) * Bal > A)
+        {
+            payment = A;
+        }
+        else
+        {
+            payment = (i + 1) * Bal;
+        }
+
+        interestPaid = i * Bal;
+        principalPaid = A - interestPaid;
+        endingBalance = (i + 1) * Bal - A;
+
+        /
+        std::cout << std::setw(15) << month++
+                  << std::setw(15) << std::fixed << std::setprecision(2) << beginningBalance
+                  << std::setw(15) << payment
+                  << std::setw(15) << interestPaid
+                  << std::setw(15) << principalPaid
+                  << std::setw(15) << endingBalance << "\n";
+
+       
+        beginningBalance = endingBalance;
+        Bal = beginningBalance;  // Set Bal to the new beginning balance
+
+        
+}
+
+
 LoanData::LoanData(double p, double n, double i)
 {
     i = i/ 100.0;
@@ -22,6 +73,11 @@ LoanData::LoanData(double p, double n, double i)
 
 }
 
+//MakePayment member function
+void LoanData::MakePayment(double pay);
+{
+    Bal = (i + 1) * Bal - pay;
+}
 
 //loandata.h 
 
