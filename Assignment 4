@@ -24,6 +24,22 @@ https://www.geeksforgeeks.org/constructors-c/ (review for using constructors)
 #include <cmath> //  needed to use the pow function in the monthly payment loan formula 
 #include <iomanip> // needed to use setw(n) 
 
+LoanData::LoanData(double p, double n, double i) // formula for monthly payment loan 
+{
+    i = i/ 100.0;
+
+    i = i / 12.0;
+
+    n = n * 12; 
+
+
+    A = p * (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);
+
+    Bal = p;
+
+}
+
+
 //PRINTAMORTIZATION SCHEDULE
 void LoanData::printAmortizationSchedule()  //header
 {
@@ -44,7 +60,7 @@ void LoanData::printAmortizationSchedule()  //header
               << std::setw(15) << "Principal Paid"
               << std::setw(15) << "Ending Balance" << "\n";
 
-    while (beginningBalance > 0)
+    while (beginningBalance > 0) // Given algorithm  
     {
         
         if ((i + 1) * Bal > A)
@@ -76,20 +92,7 @@ void LoanData::printAmortizationSchedule()  //header
 }
 
 
-LoanData::LoanData(double p, double n, double i)
-{
-    i = i/ 100.0;
 
-    i = i / 12.0;
-
-    n = n * 12; 
-
-
-    A = p * (i * pow(1 + i, n)) / (pow(1 + i, n) - 1);
-
-    Bal = p;
-
-}
 
 //MakePayment member function
 void LoanData::MakePayment(double pay);
