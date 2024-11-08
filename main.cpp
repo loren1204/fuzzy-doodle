@@ -1,3 +1,19 @@
+//Coder/Developer: Lorenna Solis, Alexis Taggart
+//Class: COP 2006-80599, Fall 2024
+//Date: November 7th, 2024
+//Description: Write a C++ program to calculate,
+//• the monthly payment on a loan given the loan amount,
+//• interest rate and
+//• the number of years to pay off the loan.
+//• Then add a function to print an amortization schedule for that loan.
+//• Create a class to save the current balance and the rest of the data as private data.
+//• Add member functions to make a payment and to print the amortization report
+//Log: November  4th, 2024- Started Program 
+//https://www.geeksforgeeks.org/constructors-c/ (review for using constructors) 
+
+
+
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
